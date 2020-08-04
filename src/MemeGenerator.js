@@ -5,7 +5,9 @@ class MemeGenerator extends React.Component {
     constructor() {
         super()
         this.state = {
-
+            topText: "",
+            bottomText: "",
+            randomImg: "https://i.ytimg.com/vi/O1hCLBTD5RM/maxresdefault.jpg"
         }
     }
 
@@ -16,7 +18,12 @@ class MemeGenerator extends React.Component {
 
     render() {
         return (
-            <h1>MEME GENERATOR</h1>
+            <div>
+                <h1>MEME GENERATOR SECTION</h1>
+                <p>I hope you enjoy these Jerome Powell Memes: {this.state.topText}</p>
+                <img src={this.state.randomImg}></img>
+                <p>Buy Gold! {this.state.topText}</p>
+            </div>
         )
     }
 }
