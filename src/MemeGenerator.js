@@ -10,13 +10,13 @@ class MemeGenerator extends React.Component {
     }
 
     handleDidMount() {
-        .fetch("")
-        .then()
+        // .fetch("")
+        // .then()
     }
 
     render() {
         return (
-            <Header />
+            <h1>MEME GENERATOR</h1>
         )
     }
 }

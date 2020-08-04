@@ -3,7 +3,13 @@ import MemeGenerator from './MemeGenerator';
 
 function Header(props) {
     return (
-        <h1>This is my header to display things! Props will be passed down from MemeGenerator and placed in this component to do this displays required. </h1>
+        <header>
+            <img 
+                src="http://www.pngall.com/wp-content/uploads/2016/05/Trollface.png" 
+                alt="Problem?"
+            />
+            <p>Meme Generator</p>
+        </header>
     )
 }
 
