@@ -19,7 +19,6 @@ class MemeGenerator extends React.Component {
             .then(response => response.json())
             .then(response => {
                 const {memes} = response.data
-                console.log(memes)
                 this.setState({allMemeImgs: memes})
             })
     }
@@ -33,31 +32,34 @@ class MemeGenerator extends React.Component {
         return (
             <div>
                 <form className="meme-form">
-
-                    <button>Generate Meme</button>
                     <br />
                     <br />
                     <input 
-                    name="topText"
-                    value={this.state.topText}
-                    placeholder="Enter top line text"
-                    onChange={this.changeHandler}
+                        type="text"
+                        name="topText"
+                        value={this.state.topText}
+                        placeholder="Enter top line text"
+                        onChange={this.changeHandler}
                     />
                     <br />
                     <br />
                     <input 
-                    name="bottomText"
-                    value={this.state.bottomText}
-                    placeholder="Enter bottom line text"
-                    onChange={this.changeHandler}
+                        type="text"
+                        name="bottomText"
+                        value={this.state.bottomText}
+                        placeholder="Enter bottom line text"
+                        onChange={this.changeHandler}
                     />
 
+                <button>Generate</button>
 
-                    {/* <img src={this.state.randomImg}></img> */}
                 </form>
 
-                <h1>topText: {this.state.topText}</h1>
-                <h1>bottomText: {this.state.bottomText}</h1>
+                <div className="meme">
+                    <img src={this.state.randomImg} alt=""></img>
+                    <h2 className="top">{this.state.topText}</h2>
+                    <h2 className="bottom">{this.state.bottomText}</h2>
+                </div>
             </div>
         )
     }
