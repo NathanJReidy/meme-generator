@@ -11,7 +11,7 @@ class MemeGenerator extends React.Component {
             allMemeImgs: []
         }
         this.componentDidMount = this.componentDidMount.bind(this)
-        this.changeHandler = this.changeHandler.bind(this)
+        //this.changeHandler = this.changeHandler.bind(this)
         this.chooseMeme = this.chooseMeme.bind(this)
     }
 
@@ -25,10 +25,12 @@ class MemeGenerator extends React.Component {
             })
     }
 
-    changeHandler(event) {
+    // NB: If we use an arrow function, we don't have to bind the function to the state in the constructor 
+    changeHandler = (event) => {
         const {name, value} = event.target
         this.setState({[name]: value})
     }
+
 
     chooseMeme(event) {
         event.preventDefault()
