@@ -12,6 +12,7 @@ class MemeGenerator extends React.Component {
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.changeHandler = this.changeHandler.bind(this)
+        this.chooseMeme = this.chooseMeme.bind(this)
     }
 
     componentDidMount() {
@@ -20,6 +21,7 @@ class MemeGenerator extends React.Component {
             .then(response => {
                 const {memes} = response.data
                 this.setState({allMemeImgs: memes})
+                console.log(this.state.allMemeImgs)
             })
     }
 
@@ -28,10 +30,16 @@ class MemeGenerator extends React.Component {
         this.setState({[name]: value})
     }
 
+    chooseMeme(event) {
+        event.preventDefault()
+        const randomNum = Math.floor(Math.random() * this.state.allMemeImgs.length)
+        this.setState({randomImg: this.state.allMemeImgs[randomNum].url.toString()})
+    }
+
     render() {
         return (
             <div>
-                <form className="meme-form">
+                <form className="meme-form" onSubmit={this.chooseMeme}>
                     <br />
                     <br />
                     <input 
