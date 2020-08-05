@@ -11,6 +11,7 @@ class MemeGenerator extends React.Component {
             allMemeImgs: []
         }
         this.componentDidMount = this.componentDidMount.bind(this)
+        this.changeHandler = this.changeHandler.bind(this)
     }
 
     componentDidMount() {
@@ -23,13 +24,40 @@ class MemeGenerator extends React.Component {
             })
     }
 
+    changeHandler(event) {
+        const {name, value} = event.target
+        this.setState({[name]: value})
+    }
+
     render() {
         return (
             <div>
-                <h1>MEME GENERATOR SECTION</h1>
-                <p>I hope you enjoy these Jerome Powell Memes: {this.state.topText}</p>
-                <img src={this.state.randomImg}></img>
-                <p>Buy Gold! {this.state.topText}</p>
+                <form className="meme-form">
+
+                    <button>Generate Meme</button>
+                    <br />
+                    <br />
+                    <input 
+                    name="topText"
+                    value={this.state.topText}
+                    placeholder="Enter top line text"
+                    onChange={this.changeHandler}
+                    />
+                    <br />
+                    <br />
+                    <input 
+                    name="bottomText"
+                    value={this.state.bottomText}
+                    placeholder="Enter bottom line text"
+                    onChange={this.changeHandler}
+                    />
+
+
+                    {/* <img src={this.state.randomImg}></img> */}
+                </form>
+
+                <h1>topText: {this.state.topText}</h1>
+                <h1>bottomText: {this.state.bottomText}</h1>
             </div>
         )
     }
